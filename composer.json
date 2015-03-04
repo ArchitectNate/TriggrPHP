@@ -1,3 +1,6 @@
 {
     "name": "thephpeffect/triggr"
+    "autoload": {
+        "psr-4": {"Triggr\\": "lib/Triggr"}
+    }
 }

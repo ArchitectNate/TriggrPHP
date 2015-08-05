@@ -1,6 +1,10 @@
 {
-    "name": "thephpeffect/triggr",
+    "name": "thephpeffect/TriggrPHP",
+    "type": "library",
+    "description": "A simple event handler for php",
+    "keywords": ["php", "event", "listener"],
+    "homepage": "https://github.com/thephpeffect/TriggrPHP"
     "autoload": {
-        "psr-4": {"Triggr\\": "lib/Triggr"}
+        "psr-4": {"Asperon\\TriggrPHP\\": "src\"}
     }
 }

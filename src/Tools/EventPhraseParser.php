@@ -35,30 +35,36 @@ class EventPhraseParser
      * @param boolean $eventNameOnly
      * @return self
      */
-    public function __contsruct($eventPhrase, $eventNameOnly = false)
+    public function __construct($eventPhrase, $eventNameOnly = false)
     {
         $this->eventPhrase = $eventPhrase;
         $this->eventNameOnly = $eventNameOnly;
+    }
 
+    /**
+     * Parses the event phrase into it's individual parts
+     * @return array|null Returns null by default, returns an array with both the eventName and handlerName if $return is set to true
+     */
+    public function parse($return = false)
+    {
         if($this->hasValidPhrase()) {
             // Set both the event name and the handler name simultaneously
-            $this->parse();
+            // [Code Here]
+
+            if($return) {
+                return array($this->eventName, $this->handlerName);
+            }
         } else {
             throw new \Exception("Invalid Event Phrase");
         }
-    }
-
-    private function parse()
-    {
-
     }
 
     /**
      * Determines if the event phrase follows the proper formatting. A properly formatted event phrase consists of only alpha-numeric characters and ":"
      * @return boolean True if it passes and false if it does not.
      */
-    private function hasValidPhrase()
+    public function hasValidPhrase()
     {
-        return preg_match("/^([a-zA-Z0-9]+)([:]([a-zA-Z0-9]+))?$/", $this->eventPhrase);
+        return (bool)preg_match(self::EVENT_PHRASE_PATTERN, $this->eventPhrase) && ($this->eventNameOnly ? !strpos($this->eventPhrase, ":") : true);
     }
 }

@@ -11,6 +11,4 @@ class HandlerCollection implements Countable
         return count($this->_handlers);
     }
 
-    public function add($)
-
 }

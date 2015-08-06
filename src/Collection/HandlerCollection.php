@@ -1,8 +1,16 @@
 <?php
 
-namespace Asperon\TriggrPHP\Collection;
+namespace TPE\TriggrPHP\Collection;
 
-class HandlerCollection implements IteratorAggregate, Countable
+
+class HandlerCollection implements Countable
 {
+    protected $_handlers;
+
+    public function count() {
+        return count($this->_handlers);
+    }
+
+    public function add($)
 
 }

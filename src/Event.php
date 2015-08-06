@@ -1,14 +1,14 @@
 <?php
 
-namespace Asperon\TriggrPHP;
+namespace TPE\TriggrPHP;
 
 class Event
 {
-	private $name;
-	private $handlers;
+    private $_name;
+    private $_handlers;
 
-	public function __construct()
-	{
+    public function __construct()
+    {
 
-	}
+    }
 }

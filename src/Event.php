@@ -1,6 +1,6 @@
 <?php
 
-namespace Triggr;
+namespace Asperon\TriggrPHP;
 
 class Event
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Triggr\Collection;
+namespace Asperon\TriggrPHP\Collection;
 
 class HandlerCollection implements IteratorAggregate, Countable
 {

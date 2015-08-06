@@ -1,9 +1,9 @@
 <?php
 
-namespace Triggr;
+namespace Asperon\TriggrPHP;
 
-use Triggr\Collection\HandlerCollection;
-use Triggr\Options\EventOptions;
+use Asperon\TriggrPHP\Collection\HandlerCollection;
+use Asperon\TriggrPHP\Options\EventOptions;
 
 static class Triggr
 {

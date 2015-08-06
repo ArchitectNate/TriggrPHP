@@ -1,5 +1,5 @@
 {
-    "name": "thephpeffect/TriggrPHP",
+    "name": "thephpeffect/triggr-php",
     "type": "library",
     "description": "A simple event handler for php",
     "keywords": ["php", "event", "listener"],

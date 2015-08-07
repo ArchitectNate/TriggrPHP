@@ -27,14 +27,13 @@ class HandlerTest extends \PHPUnit_Framework_TestCase
         // Non Null HandlerOptions
         $a = (new EventPhraseParser("EventName2:SomeOtherEventHandler"))->parse();
         $b = new HandlerOptions();
-        $c = new Handler($a->getHandlerName(), function()
-        {
-            return true;
-        }, $c);
+        $c = function() { return true; };
 
-        $this->assertEquals("SomeOtherEventHandler", $c->getName());
-        $this->assertInternalType("callable", $c->getFunc());
-        $this->assertNotInternalType("HandlerOptions", $c->getOptions());
+        $d = new Handler($a->getHandlerName(), $c, $b);
+
+        $this->assertEquals("SomeOtherEventHandler", $d->getName());
+        $this->assertInternalType("callable", $d->getFunc());
+        $this->assertInstanceOf("TPE\TriggrPHP\Options\HandlerOptions", $d->getOptions());
 
     }
 

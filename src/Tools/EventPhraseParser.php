@@ -4,6 +4,9 @@ namespace TPE\TriggrPHP\Tools;
 
 use TPE\TriggrPHP\Exception\InvalidEventPhraseException;
 
+/**
+ * Handles the parsing of event phrases
+ */
 class EventPhraseParser
 {
     /**

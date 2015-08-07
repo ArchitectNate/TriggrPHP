@@ -31,8 +31,8 @@ class EventPhraseParserTest extends \PHPUnit_Framework_TestCase
             $a = new EventPhraseParser($eventPhrase); // With default behavior
             $b = new EventPhraseParser($eventPhrase, true); // With event name only filtering
 
-            $this->assertEquals($eventNameOnlyFalse, (bool)$a->hasValidPhrase(), "Testing {$eventPhrase} without flag which should be " . ($eventNameOnlyFalse ? "true" : "false"));
-            $this->assertEquals($eventNameOnlyTrue, (bool)$b->hasValidPhrase(), "Testing {$eventPhrase} with flag which should be " . ($eventNameOnlyTrue ? "true" : "false"));
+            $this->assertEquals($eventNameOnlyFalse, $a->hasValidPhrase(), "Testing {$eventPhrase} without flag which should be " . ($eventNameOnlyFalse ? "true" : "false"));
+            $this->assertEquals($eventNameOnlyTrue, $b->hasValidPhrase(), "Testing {$eventPhrase} with flag which should be " . ($eventNameOnlyTrue ? "true" : "false"));
         }
 
     }

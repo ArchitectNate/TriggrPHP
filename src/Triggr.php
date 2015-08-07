@@ -31,6 +31,4 @@ class Triggr
     {
         // Allows options for a specific handler to be  set, if full EVT:HANDLR format isn't used, an error is thrown
     }
-
-
 }

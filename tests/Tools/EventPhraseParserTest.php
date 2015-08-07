@@ -36,4 +36,31 @@ class EventPhraseParserTest extends \PHPUnit_Framework_TestCase
         }
 
     }
+
+    /**
+     * @expectedException Exception
+     * @expectedExceptionMessage Invalid Event Phrase
+     */
+    public function testParseException()
+    {
+        (new EventPhraseParser("EventName$"))->parse(); // Has symbol
+        (new EventPhraseParser("EventName:HandlerName", true))->parse(); // Isn't only an event name
+        (new EventPhraseParser("EventName:Handle#rName"))->parse(); // Handler has symbol
+    }
+
+    public function testParse()
+    {
+        $a = (new EventPhraseParser("EventName"))->parse();
+        $this->assertEquals("EventName", $a->getEventName());
+        $this->assertNull($a->getHandlerName());
+
+        $a = (new EventPhraseParser("EventName:HandlerName"))->parse();
+        $this->assertEquals("EventName", $a->getEventName());
+        $this->assertEquals("HandlerName", $a->getHandlerName());
+
+        $a = (new EventPhraseParser("EventName", true))->parse();
+        $this->assertEquals("EventName", $a->getEventName());
+        $this->assertNull($a->getHandlerName());
+
+    }
 }

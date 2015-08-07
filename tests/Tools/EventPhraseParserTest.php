@@ -38,7 +38,7 @@ class EventPhraseParserTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Exception
+     * @expectedException TPE\TriggrPHP\Exception\InvalidEventPhraseException
      * @expectedExceptionMessage Invalid Event Phrase
      */
     public function testParseEventSymbolException()
@@ -47,7 +47,7 @@ class EventPhraseParserTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Exception
+     * @expectedException TPE\TriggrPHP\Exception\InvalidEventPhraseException
      * @expectedExceptionMessage Invalid Event Phrase
      */
     public function testParseEventNameOnlyException()
@@ -56,7 +56,7 @@ class EventPhraseParserTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Exception
+     * @expectedException TPE\TriggrPHP\Exception\InvalidEventPhraseException
      * @expectedExceptionMessage Invalid Event Phrase
      */
     public function testParseHandlerSymbolException()

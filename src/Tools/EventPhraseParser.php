@@ -2,6 +2,8 @@
 
 namespace TPE\TriggrPHP\Tools;
 
+use TPE\TriggrPHP\Exception\InvalidEventPhraseException;
+
 class EventPhraseParser
 {
     /**
@@ -66,7 +68,7 @@ class EventPhraseParser
             }
 
         } else {
-            throw new \Exception("Invalid Event Phrase");
+            throw new InvalidEventPhraseException();
         }
 
         return $this;

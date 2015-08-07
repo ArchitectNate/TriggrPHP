@@ -1,6 +1,11 @@
 <?php
 namespace TPE\TriggrPHP\Exception;
 
+/**
+ * A basic Exception extensions for handling invalid event phrases
+ * 
+ * @todo Create detection for why the phrase is invalid (symbols, eventOnly, etc)
+ */
 class InvalidEventPhraseException extends \Exception
 {
     /**
@@ -12,13 +17,4 @@ class InvalidEventPhraseException extends \Exception
     public function __construct($message = "Invalid Event Phrase", $code = 0, Exception $previous = null) {
         parent::__construct($message, $code, $previous);
     }
-
-    /**
-     * Converts the Exception to a readable string
-     * @return string A formated string of "{class_name}: [{exception_code}]: {exception_message}""
-     */
-    public function __toString() {
-        return __CLASS__ . ": [{$this->code}]: {$this->message}\n";
-    }
-    
 }

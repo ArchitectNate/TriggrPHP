@@ -2,7 +2,7 @@
 
 namespace TPE\TriggrPHP\Options;
 
-class EventOptions
+class EventOptions extends TriggrOptions
 {
 
 }

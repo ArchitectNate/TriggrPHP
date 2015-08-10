@@ -7,7 +7,7 @@ use TPE\TriggrPHP\Exception\InvalidEventPhraseException;
 /**
  * Handles the parsing of event phrases
  */
-class EventPhraseParser
+class EventPhrase
 {
     /**
      * @var string Regex pattern used to validate and parse the event phrase
@@ -46,7 +46,24 @@ class EventPhraseParser
         $this->eventPhrase = $eventPhrase;
         $this->eventNameOnly = $eventNameOnly;
 
+        $this->parse();
+
         return $this;
+    }
+
+    /**
+     * Determines if the event phrase follows the proper formatting. A properly formatted event phrase consists of only alpha-numeric characters and ":"
+     * 
+     * @return boolean True if it passes and false if it does not.
+     */
+    public function hasValidPhrase()
+    {
+        return (bool)preg_match(self::EVENT_PHRASE_PATTERN, $this->eventPhrase) &&
+            // If eventNameOnly is set, then check for a ":", if one exists,
+            // Then we should return false because evente names alone do not
+            // have a ":", if eventNameOnly is set to true, then always return
+            // true, because essentially, we don't care what happens here
+            ($this->eventNameOnly ? !strpos($this->eventPhrase, ":") : true);
     }
 
     /**
@@ -54,7 +71,7 @@ class EventPhraseParser
      * 
      * @return self
      */
-    public function parse()
+    private function parse()
     {
         $eventPhraseData = array();
 
@@ -77,20 +94,9 @@ class EventPhraseParser
         return $this;
     }
 
-    /**
-     * Determines if the event phrase follows the proper formatting. A properly formatted event phrase consists of only alpha-numeric characters and ":"
-     * 
-     * @return boolean True if it passes and false if it does not.
-     */
-    public function hasValidPhrase()
-    {
-        return (bool)preg_match(self::EVENT_PHRASE_PATTERN, $this->eventPhrase) &&
-            // If eventNameOnly is set, then check for a ":", if one exists,
-            // Then we should return false because evente names alone do not
-            // have a ":", if eventNameOnly is set to true, then always return
-            // true, because essentially, we don't care what happens here
-            ($this->eventNameOnly ? !strpos($this->eventPhrase, ":") : true);
-    }
+    ///////////////////////
+    // GETTERS & SETTERS //
+    ///////////////////////
 
     /**
      * Gets the value of handlerName.

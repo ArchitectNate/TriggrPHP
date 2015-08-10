@@ -2,6 +2,7 @@
 namespace TPE\TriggrPHP;
 
 use TPE\TriggrPHP\Options\HandlerOptions;
+use TPE\TriggrPHP\Tools\EventPhrase;
 
 /**
  * An individual event handler
@@ -24,18 +25,59 @@ class Handler
     private $options;
 
     /**
+     * @var integer The number of times this handler has been fired
+     */
+    private $totalRuns;
+
+    /**
      * Stores handler data for use later on
-     * @param string              $name    The handler name parsed from an event phrase
+     * @param EventPhrase              $phrase  An Event Phrase Object
      * @param callable            $func    The function to be called
      * @param HandlerOptions|null $options The options that detail the handler's behavior
      */
-    public function __construct($name, callable $func, HandlerOptions $options = null)
+    public function __construct(EventPhrase $phrase, callable $func, HandlerOptions $options = null)
     {
-        $this->name = $name;
+
+        $this->name = ($phrase->getHandlerName() != null ? $phrase->getHandlerName() : $this->generateRandomName());
         $this->func = $func;
-        $this->options = $options;
+        $this->options = $options ? $options : new HandlerOptions();
     }
 
+    /**
+     * Fires the handler function
+     * @param  array  $args The array of arguments for the handler function
+     * @return mixed|null Null if the function shouldn't fire
+     */
+    public function fire(array $args = array())
+    {
+        $this->totalRuns++;
+
+        if($this->hasMetRunLimit())
+        {
+            return null;
+        }
+
+        return call_user_func_array($this->func, $args);
+    }
+
+    private function hasMetRunLimit()
+    {
+        return ($this->options->getRunLimit() == 0 ? false : $this->totalRuns >= $this->options->getRunLimit());
+    }
+
+    private function generateRandomName()
+    {
+        // Ensure uniqueness
+        list($usec, $sec) = explode(' ', microtime());
+        $seed = (float) $sec + ((float) $usec * 100000);
+        mt_srand($seed);
+        return "Handler_" . hash("sha256", mt_rand());
+    }
+
+    ////////////////////////
+    // GETTERS & SETTERS  //
+    ////////////////////////
+    
     /**
      * Gets the value of name.
      *
@@ -64,5 +106,15 @@ class Handler
     public function getOptions()
     {
         return $this->options;
+    }
+
+    /**
+     * Gets the value of totalRuns.
+     *
+     * @return integer The number of times this handler has been fired
+     */
+    public function getTotalRuns()
+    {
+        return $this->totalRuns;
     }
 }

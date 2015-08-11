@@ -4,11 +4,18 @@ namespace TPE\TriggrPHP;
 
 class Event
 {
-    private $_name;
-    private $_handlers;
+    private $name;
+    private $handlers;
 
-    public function __construct()
+    /**
+     * An event that can be fired or acted upon
+     * @param string $name The event name that it will be called by
+     */
+    public function __construct($name)
     {
+        $this->handlers = new HandlerCollection();
+        $this->name = $name;
 
+        return $this;
     }
 }

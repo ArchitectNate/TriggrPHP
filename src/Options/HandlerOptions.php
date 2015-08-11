@@ -2,7 +2,7 @@
 
 namespace TPE\TriggrPHP\Options;
 
-class HandlerOptions extends TriggrOptions
+class HandlerOptions extends BaseOptions
 {
     /**
      * @var integer The order in which it should be run

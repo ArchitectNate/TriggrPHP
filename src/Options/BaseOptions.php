@@ -4,7 +4,7 @@ namespace TPE\TriggrPHP\Options;
 /**
  * The base options class
  */
-abstract class TriggrOptions
+abstract class BaseOptions
 {
     /**
      * Parses the options array and sets any valid options

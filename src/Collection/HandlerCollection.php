@@ -3,12 +3,13 @@
 namespace TPE\TriggrPHP\Collection;
 
 
-class HandlerCollection implements Countable
+class HandlerCollection implements \Countable
 {
-    protected $_handlers;
+    protected $handlers;
 
-    public function count() {
-        return count($this->_handlers);
+    public function count()
+    {
+        return count($this->handlers);
     }
 
 }

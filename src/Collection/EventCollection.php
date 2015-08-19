@@ -25,8 +25,7 @@ class EventCollection implements \Countable
      */
     public function getEvent(EventPhrase $eventPhrase)
     {
-        if(!array_key_exists($eventPhrase->getEventName(), $this->events))
-        {
+        if(!array_key_exists($eventPhrase->getEventName(), $this->events)) {
             $this->addEvent(new Event($eventPhrase));
         }
 
@@ -40,8 +39,7 @@ class EventCollection implements \Countable
      */
     public function removeEvent(EventPhrase $eventPhrase)
     {
-        if(array_key_exists($eventPhrase->getEventName(), $this->events))
-        {
+        if(array_key_exists($eventPhrase->getEventName(), $this->events)) {
             unset($this->events[$eventPhrase->getEventName()]);
         }
 

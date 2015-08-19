@@ -23,10 +23,28 @@ class Event
         return $this;
     }
 
+    /**
+     * Adds a handler to an event
+     * @param Handler $handler The handler to be added to the event
+     */
     public function addHandler(Handler $handler)
     {
         $this->handlers->addHandler($handler);
         $this->handlers->sortHandlers();
+
+        return $this;
+    }
+
+    /**
+     * Removes a handler by it's name. It passes the handler name through the
+     * EventPhrase to validate it
+     * @param  string $handlerName [description]
+     * @return [type]              [description]
+     */
+    public function removeHandler($handlerName)
+    {
+        $eventPhrase = new EventPhrase($this->getName() . ":" . $handlerName);
+        $this->handlers->removeHandler($eventPhrase->getHandlerName());
 
         return $this;
     }
@@ -38,5 +56,27 @@ class Event
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Fires all handlers in the event's HandlerCollection
+     * @return void
+     */
+    public function fire()
+    {
+        $handlers = $this->handlers->getHandlers();
+        foreach($this->handlers->getHandlerSort() as $handlerSort)
+        {
+            $handlers[$handlerSort]->fire();
+        }
+    }
+
+    /**
+     * Returns the event's handler collection
+     * @return HandlerCollection
+     */
+    public function getHandlerCollection()
+    {
+        return $this->handlers;
     }
 }

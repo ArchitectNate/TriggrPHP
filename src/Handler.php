@@ -37,7 +37,6 @@ class Handler
      */
     public function __construct(EventPhrase $phrase, callable $func, HandlerOptions $options = null)
     {
-
         $this->name = ($phrase->getHandlerName() != null ? $phrase->getHandlerName() : $this->generateRandomName());
         $this->func = $func;
         $this->options = $options ? $options : new HandlerOptions();

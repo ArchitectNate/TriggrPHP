@@ -16,8 +16,7 @@ abstract class BaseOptions
         if(count($options) > 0) {
             foreach($options as $optionName=>$val) {
                 $methodName = "set" . $optionName;
-                if(method_exists($this, $methodName))
-                {
+                if(method_exists($this, $methodName)) {
                     $this->$methodName($val);
                 }
             }

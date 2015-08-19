@@ -14,8 +14,7 @@ class HandlerTest extends \PHPUnit_Framework_TestCase
     {
         // Null HandlerOptions
         $a = new EventPhrase("EventName:EventHandler");
-        $b = new Handler($a, function()
-        {
+        $b = new Handler($a, function() {
             return true;
         });
 
@@ -28,8 +27,7 @@ class HandlerTest extends \PHPUnit_Framework_TestCase
 
         // No handler name given
         $a = new EventPhrase("EventName");
-        $b = new Handler($a, function()
-        {
+        $b = new Handler($a, function() {
             return true;
         });
 

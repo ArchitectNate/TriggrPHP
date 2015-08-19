@@ -19,7 +19,7 @@ class Triggr
      */
     public static function watch($eventPhrase, callable $func, HandlerOptions $handlerOptions = null)
     {
-        // Create a new event, store the name, action and options    
+        // Create a new event, store the name, action and options
         $eventPhrase = new EventPhrase($eventPhrase);
         $handler = new Handler($eventPhrase, $func, $handlerOptions);
         $event = self::getEventCollection()->getEvent($eventPhrase)
@@ -43,6 +43,11 @@ class Triggr
         self::getEventCollection()->getEvent($eventPhrase)->setEventOptions($eventOptions);
     }
 
+    /**
+     * Changes the handler options of a specific handler
+     * @param string         $eventPhrase    The event phrase that targets the handler
+     * @param HandlerOptions $handlerOptions The new options to be set, this completely overrides
+     */
     public static function setHandlerOptions($eventPhrase, HandlerOptions $handlerOptions)
     {
         $eventPhrase = new EventPhrase($eventPhrase);
@@ -53,10 +58,27 @@ class Triggr
     }
 
     /**
+     * Removes a handler from a particular event
+     * @param  string $eventPhrase The event phrase with the handler name to be removed
+     * @return [type]              [description]
+     */
+    public static function removeEventHandler($eventPhrase)
+    {
+        $eventPhrase = new EventPhrase($eventPhrase);
+
+        if(!is_null($eventPhrase->getHandlerName()))
+        {
+            self::getEventCollection()
+                ->getEvent($eventPhrase)
+                ->removeHandler($eventPhrase->getHandlerName());
+        }
+    }
+
+    /**
      * Retuns the event collection. Only one event collection exists in Triggr, if it doesn't exist yet, it is created.
      * @return EventCollection The collection of events defined by the Triggr::watch()
      */
-    public static function getEventCollection()
+    private static function getEventCollection()
     {
         if(!isset(self::$events))
         {

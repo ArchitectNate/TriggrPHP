@@ -64,10 +64,12 @@ class Event
      */
     public function fire()
     {
-        $handlers = $this->handlers->getHandlers();
-        foreach($this->handlers->getHandlerSort() as $handlerSort)
-        {
-            $handlers[$handlerSort]->fire();
+        $handlers = $hc->getHandlers();
+
+        foreach($hc->getHandlerSort() as $handlerPriority) {
+            foreach($handlerPriority as $handlerName) {
+                $handlers[$handlerName]->fire();
+            }
         }
     }
 

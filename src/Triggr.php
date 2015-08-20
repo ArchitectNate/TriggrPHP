@@ -26,7 +26,7 @@ class Triggr
             ->addHandler($handler);
     }
 
-    public static function fire($eventName, array $args = null, EventOptions $eventOptionsOverride = null)
+    public static function fire($eventName, array $args = null)
     {
         // Retrieves the event object, attempts to fire it based on options settings it may not fire
     }

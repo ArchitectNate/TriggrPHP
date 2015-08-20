@@ -3,7 +3,7 @@ namespace TPE\TriggrPHP;
 
 use TPE\TriggrPHP\Collection\HandlerCollection;
 use TPE\TriggrPHP\Collection\EventCollection;
-use TPE\TriggrPHP\Options\EventOptions;
+use TPE\TriggrPHP\Options\HandlerOptions;
 use TPE\TriggrPHP\Tools\EventPhrase;
 
 class Triggr
@@ -12,14 +12,15 @@ class Triggr
 
     /**
      * Registers a new event or updates an existing one with a new handler
-     * @param  string              $eventPhrase    The event identifier in the form of "EventName:HandlerName"
-     * @param  callable            $func           The function to be run when the handler/event is called
-     * @param  HandlerOptions|null $handlerOptions Any options that should be set for this particular handler
+     * @param  string     $eventPhrase    The event identifier in the form of "EventName:HandlerName"
+     * @param  callable   $func           The function to be run when the handler/event is called
+     * @param  array $handlerOptions Any options that should be set for this particular handler
      * @return void                              
      */
-    public static function watch($eventPhrase, callable $func, HandlerOptions $handlerOptions = null)
+    public static function watch($eventPhrase, callable $func, array $handlerOptions = array())
     {
         $eventPhrase = new EventPhrase($eventPhrase);
+        $handlerOptions = new HandlerOptions($handlerOptions);
         $handler = new Handler($eventPhrase, $func, $handlerOptions);
         $event = self::getEventCollection()
             ->getEvent($eventPhrase)
@@ -48,39 +49,48 @@ class Triggr
     public static function fireHandler($eventPhrase, array $args = null)
     {
         $eventPhrase = new EventPhrase($eventPhrase);
-        if($eventPhrase->getHandlerName()) {
-            return self::getEventCollection()
-                ->getEvent($eventPhrase)
-                ->getHandler($eventPhrase->getHandlerName())
-                ->fire($args);
+        $event = self::getEventCollection() ->getEvent($eventPhrase);
+        $handler = $event->getHandler($eventPhrase->getHandlerName());
+        if($eventPhrase->getHandlerName() && $handler) {
+            return $handler->fire($args);
         }
-    }
-
-    public static function setEventOptions($eventName, EventOptions $eventOptions)
-    {
-        // Allows options for a specific event to be set
-        $eventPhrase = new EventPhrase($eventName, true);
-        self::getEventCollection()->getEvent($eventPhrase)->setEventOptions($eventOptions);
     }
 
     /**
      * Changes the handler options of a specific handler
-     * @param string         $eventPhrase    The event phrase that targets the handler
-     * @param HandlerOptions $handlerOptions The new options to be set, this completely overrides
+     * @param string    $eventPhrase    The event phrase that targets the handler
+     * @param array     $handlerOptions The new options to be set, this completely overrides
+     * @return null
      */
-    public static function setHandlerOptions($eventPhrase, HandlerOptions $handlerOptions)
+    public static function setHandlerOptions($eventPhrase, array $handlerOptions)
     {
         $eventPhrase = new EventPhrase($eventPhrase);
-        $handler = self::getEventCollection()->getHandler($eventPhrase); // short cut to getEvent($eventPhrase)->getHandler($eventPhrase)
+        $handlerOptions = new HandlerOptions($handlerOptions);
+        $event = self::getEventCollection()->getEvent($eventPhrase);
+        $handler = $event->getHandler($eventPhrase->getHandlerName());
+
         if($handler) {
-            $handler->setHandlerOptions($handlerOptions);
+            $handler->setOptions($handlerOptions);
         }
+
+        $event->getHandlerCollection()->sortHandlers();
+    }
+
+    /**
+     * Removes and event and all of it's handlers
+     * @param  string $eventName The event name only
+     * @return void
+     */
+    public static function removeEvent($eventName)
+    {
+        $eventPhrase = new EventPhrase($eventName);
+        self::getEventCollection()->removeEvent($eventPhrase);
     }
 
     /**
      * Removes a handler from a particular event
      * @param  string $eventPhrase The event phrase with the handler name to be removed
-     * @return [type]              [description]
+     * @return void
      */
     public static function removeEventHandler($eventPhrase)
     {

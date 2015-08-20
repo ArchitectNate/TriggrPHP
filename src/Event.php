@@ -61,7 +61,8 @@ class Event
 
     /**
      * Fires all handlers in the event's HandlerCollection
-     * @return void
+     * @param  array  $args The arguments to be passed to each handler
+     * @return mixed  An array of results for each handler run
      */
     public function fire($args = array())
     {

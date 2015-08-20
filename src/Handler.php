@@ -108,6 +108,17 @@ class Handler
     }
 
     /**
+     * Sets the value of options.
+     * @param   HandlerOptions $HandlerOptions The new options to set
+     * @return  self
+     */
+    public function setOptions(HandlerOptions $handlerOptions)
+    {
+        $this->options = $handlerOptions;
+        return $this;
+    }
+
+    /**
      * Gets the value of totalRuns.
      *
      * @return integer The number of times this handler has been fired

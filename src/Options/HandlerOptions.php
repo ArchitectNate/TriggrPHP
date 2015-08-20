@@ -16,8 +16,9 @@ class HandlerOptions extends BaseOptions
 
     /**
      * @var boolean If true, once the handler completes, the rest of the handlers are halted
-     */
+     *
     private $cancelEvent = false;
+     */
 
     ///////////////////////
     // GETTERS & SETTERS //
@@ -75,11 +76,12 @@ class HandlerOptions extends BaseOptions
      * Gets the value of cancelEvent.
      *
      * @return boolean If true, once the handler completes, the rest of the handlers are halted
-     */
+     * 
     public function getCancelEvent()
     {
         return $this->cancelEvent;
     }
+     */
 
     /**
      * Sets the value of cancelEvent.
@@ -87,11 +89,12 @@ class HandlerOptions extends BaseOptions
      * @param boolean If true, once the handler completes, the rest of the handlers are halted $cancelEvent the cancel event
      *
      * @return self
-     */
+     *
     public function setCancelEvent($cancelEvent)
     {
         $this->cancelEvent = $cancelEvent;
 
         return $this;
     }
+     */
 }

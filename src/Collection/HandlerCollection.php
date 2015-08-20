@@ -89,4 +89,16 @@ class HandlerCollection implements \Countable
     {
         return $this->handlers;
     }
+
+    /**
+     * Retreives a handler from the collection by it's name
+     * @param  string $handlerName The handler desired to be retrieved
+     * @return Handler|null If no handler is available, null is returned
+     */
+    public function getHandlerByName($handlerName)
+    {
+        if(array_key_exists($handlerName, $this->handlers)) {
+            return $this->handlers[$handlerName];
+        }
+    }
 }

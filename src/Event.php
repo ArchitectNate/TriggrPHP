@@ -9,7 +9,7 @@ use TPE\TriggrPHP\Collection\HandlerCollection;
 class Event
 {
     private $name;
-    private $handlers;
+    private $handlerCollection;
 
     /**
      * An event that can be fired or acted upon
@@ -17,7 +17,7 @@ class Event
      */
     public function __construct(EventPhrase $eventPhrase)
     {
-        $this->handlers = new HandlerCollection();
+        $this->handlerCollection = new HandlerCollection();
         $this->name = $eventPhrase->getEventName();
 
         return $this;
@@ -29,8 +29,8 @@ class Event
      */
     public function addHandler(Handler $handler)
     {
-        $this->handlers->addHandler($handler);
-        $this->handlers->sortHandlers();
+        $this->getHandlerCollection()->addHandler($handler);
+        $this->getHandlerCollection()->sortHandlers();
 
         return $this;
     }
@@ -44,7 +44,8 @@ class Event
     public function removeHandler($handlerName)
     {
         $eventPhrase = new EventPhrase($this->getName() . ":" . $handlerName);
-        $this->handlers->removeHandler($eventPhrase->getHandlerName());
+        $this->getHandlerCollection()->removeHandler($eventPhrase->getHandlerName());
+        $this->getHandlerCollection()->sortHandlers();
 
         return $this;
     }
@@ -62,15 +63,19 @@ class Event
      * Fires all handlers in the event's HandlerCollection
      * @return void
      */
-    public function fire()
+    public function fire($args = array())
     {
+        $hc = $this->getHandlerCollection();
         $handlers = $hc->getHandlers();
+        $return = array();
 
         foreach($hc->getHandlerSort() as $handlerPriority) {
             foreach($handlerPriority as $handlerName) {
-                $handlers[$handlerName]->fire();
+                $return[$handlerName] = $handlers[$handlerName]->fire($args);
             }
         }
+
+        return $return;
     }
 
     /**
@@ -79,6 +84,17 @@ class Event
      */
     public function getHandlerCollection()
     {
-        return $this->handlers;
+        return $this->handlerCollection;
+    }
+
+    /**
+     * Retrieves an individual handler on the event
+     * @param  string $handlerName The handlername to retrieve
+     * @return Handler|null If no handler exists, null is returned
+     */
+    public function getHandler($handlerName)
+    {
+        $eventPhrase = new EventPhrase($this->getName() . ":" . $handlerName);
+        return $this->getHandlerCollection()->getHandlerByName($handlerName);
     }
 }

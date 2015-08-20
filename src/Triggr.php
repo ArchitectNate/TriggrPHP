@@ -19,21 +19,41 @@ class Triggr
      */
     public static function watch($eventPhrase, callable $func, HandlerOptions $handlerOptions = null)
     {
-        // Create a new event, store the name, action and options
         $eventPhrase = new EventPhrase($eventPhrase);
         $handler = new Handler($eventPhrase, $func, $handlerOptions);
-        $event = self::getEventCollection()->getEvent($eventPhrase)
+        $event = self::getEventCollection()
+            ->getEvent($eventPhrase)
             ->addHandler($handler);
     }
 
+    /**
+     * Fires an event (and therefore fires all handlers within that event)
+     * @param  string     $eventName The event name only, a full event phrase will be rejected
+     * @param  array|null $args      The arguments to be passed to each handler
+     * @return array                 An array of all returned values from the handlers
+     */
     public static function fire($eventName, array $args = null)
     {
-        // Retrieves the event object, attempts to fire it based on options settings it may not fire
+        return self::getEventCollection()
+            ->getEvent(new EventPhrase($eventName, true))
+            ->fire($args);
     }
 
+    /**
+     * Fires an individual handler
+     * @param  string     $eventPhrase The event phrase targeting a single handler
+     * @param  array|null $args        The array of arguments to be passed to the handler
+     * @return mixed|null              The return value of the handler function
+     */
     public static function fireHandler($eventPhrase, array $args = null)
     {
-        // Fire a specif handler in an event if it has been named using EVT:HANDLR format
+        $eventPhrase = new EventPhrase($eventPhrase);
+        if($eventPhrase->getHandlerName()) {
+            return self::getEventCollection()
+                ->getEvent($eventPhrase)
+                ->getHandler($eventPhrase->getHandlerName())
+                ->fire($args);
+        }
     }
 
     public static function setEventOptions($eventName, EventOptions $eventOptions)

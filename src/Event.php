@@ -64,7 +64,7 @@ class Event
      * @param  array  $args The arguments to be passed to each handler
      * @return mixed  An array of results for each handler run
      */
-    public function fire($args = array())
+    public function fire(array $args = array())
     {
         $hc = $this->getHandlerCollection();
         $handlers = $hc->getHandlers();

@@ -33,7 +33,7 @@ class Triggr
      * @param  array|null $args      The arguments to be passed to each handler
      * @return array                 An array of all returned values from the handlers
      */
-    public static function fire($eventName, array $args = null)
+    public static function fire($eventName, array $args = array())
     {
         return self::getEventCollection()
             ->getEvent(new EventPhrase($eventName, true))
@@ -46,7 +46,7 @@ class Triggr
      * @param  array|null $args        The array of arguments to be passed to the handler
      * @return mixed|null              The return value of the handler function
      */
-    public static function fireHandler($eventPhrase, array $args = null)
+    public static function fireHandler($eventPhrase, array $args = array())
     {
         $eventPhrase = new EventPhrase($eventPhrase);
         $event = self::getEventCollection() ->getEvent($eventPhrase);

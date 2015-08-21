@@ -1,8 +1,8 @@
 <?php
 
-namespace Asperon\TriggrPHP\Options;
+namespace TPE\TriggrPHP\Options;
 
-class EventOptions
+class EventOptions extends BaseOptions
 {
 
 }

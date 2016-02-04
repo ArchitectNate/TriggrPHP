@@ -85,14 +85,20 @@ class EventPhraseTest extends \PHPUnit_Framework_TestCase
         $a = new EventPhrase("EventName");
         $this->assertEquals("EventName", $a->getEventName());
         $this->assertNull($a->getHandlerName());
+        $this->assertEquals("EventName", $a->getEventPhrase());
+        $this->assertFalse($a->getEventNameOnly());
 
         $a = new EventPhrase("EventName:HandlerName");
         $this->assertEquals("EventName", $a->getEventName());
         $this->assertEquals("HandlerName", $a->getHandlerName());
+        $this->assertEquals("EventName:HandlerName", $a->getEventPhrase());
+        $this->assertFalse($a->getEventNameOnly());
 
         $a = new EventPhrase("EventName", true);
         $this->assertEquals("EventName", $a->getEventName());
         $this->assertNull($a->getHandlerName());
+        $this->assertEquals("EventName", $a->getEventPhrase());
+        $this->assertTrue($a->getEventNameOnly());
 
     }
 }

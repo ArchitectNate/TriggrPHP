@@ -1,6 +1,8 @@
 # TriggrPHP
 A lightweight PHP event handling system.
 
+[![Build Status](https://travis-ci.org/thephpeffect/TriggrPHP.svg?branch=master)](https://travis-ci.org/thephpeffect/TriggrPHP)
+
 This system allows you to set events and event handlers, fire the events and control the event flow. This is a great way to enabled developers to add event hooks to software.
 
 Note: This is not a replacement for major frameworks like ReactPHP, but more of a supplement tool for other frameworks and situations where event handling would be convenient.

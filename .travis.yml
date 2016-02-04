@@ -3,8 +3,6 @@ language: php
 sudo: false
 
 php:
-  - 5.2
-  - 5.3
   - 5.4
   - 5.5
   - 5.6
@@ -16,11 +14,18 @@ matrix:
     - php: 7.0
     - php: hhvm
 
-before_script:
+before_install:
+  - composer self-update
+  - composer config -g github-oauth.github.com ab3ce6ab2c029c95bd8ffecb8e7d0e295779a792
+  - composer config -g repositories.packagist path $(pwd)
+  - composer global require 'thephpeffect/triggr-php'
+  - composer config -g --unset repositories.packagist
+  
+install:
+  - composer install --no-progress --profile
 
-# omitting "script:" will default to phpunit
-# use the $DB env variable to determine the phpunit.xml to use
-#script: phpunit --configuration phpunit_$DB.xml --coverage-text
+script:
+  - phpunit --bootstrap test/bootstrap.php test --coverage-text
 
 notifications:
   email: "nathans@thephpeffect.com"

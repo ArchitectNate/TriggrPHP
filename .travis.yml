@@ -17,9 +17,7 @@ matrix:
 before_install:
   - composer self-update
   - composer config -g github-oauth.github.com ab3ce6ab2c029c95bd8ffecb8e7d0e295779a792
-  - composer config -g repositories.packagist path $(pwd)
   - composer global require thephpeffect/triggr-php
-  - composer config -g --unset repositories.packagist
   
 install:
   - composer install --no-progress --profile

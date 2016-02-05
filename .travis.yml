@@ -18,12 +18,16 @@ before_install:
   - composer self-update
   - composer config -g github-oauth.github.com ab3ce6ab2c029c95bd8ffecb8e7d0e295779a792
   - composer global require thephpeffect/triggr-php:dev-master
+  - pip install --user codecov
   
 install:
   - composer install --no-progress --profile
 
 script:
   - phpunit --bootstrap test/bootstrap.php test --coverage-text
+  
+after_success:
+  - codecov
 
 notifications:
   email: "nathans@thephpeffect.com"

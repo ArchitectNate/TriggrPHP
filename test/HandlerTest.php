@@ -63,5 +63,7 @@ class HandlerTest extends \PHPUnit_Framework_TestCase
         $c->fire(); $c->fire(); // Fire once to use up it's two run
 
         $this->assertNull($c->fire());
+
+        $this->assertEquals(2, $c->getTotalRuns());
     }
 }

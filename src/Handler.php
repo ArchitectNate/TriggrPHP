@@ -49,12 +49,12 @@ class Handler
      */
     public function fire(array $args = array())
     {
-        $this->totalRuns++;
-
         if($this->hasMetRunLimit())
         {
             return null;
         }
+
+        $this->totalRuns++;
 
         return call_user_func_array($this->func, $args);
     }

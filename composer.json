@@ -19,6 +19,11 @@
     "require-dev": {
         "phpunit/phpunit": "~4.8"
     },
+    "config" : {
+        "platform": {
+            "php": "5.4"
+        }
+    },
     "autoload": {
         "psr-4": {
             "TPE\\TriggrPHP\\": "src/"

@@ -53,4 +53,15 @@ class HandlerTest extends \PHPUnit_Framework_TestCase
 
         $this->assertTrue($c->fire());
     }
+
+    public function testRunLimit()
+    {
+        $a = new EventPhrase("EventName:HandlerName");
+        $b = function(){ return true; };
+        $c = new Handler($a, $b, new HandlerOptions(array("RunLimit" => 2)));
+
+        $c->fire(); $c->fire(); // Fire once to use up it's two run
+
+        $this->assertNull($c->fire());
+    }
 }

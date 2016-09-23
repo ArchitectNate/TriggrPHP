@@ -2,7 +2,7 @@
 A lightweight PHP event handling system.
 
 [![Packagist](https://img.shields.io/packagist/v/architectnate/triggr-php.svg)]() 
-[![Build Status](https://travis-ci.org/architectnate/TriggrPHP.svg)](https://travis-ci.org/architectnate/TriggrPHP) 
+[![Build Status](https://travis-ci.org/ArchitectNate/TriggrPHP.svg?branch=master)](https://travis-ci.org/ArchitectNate/TriggrPHP) 
 [![Dependency Status](https://www.versioneye.com/user/projects/57e51d7179806f002f4aa2fe/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/56b3ba5e0a0ff5002c85ed7b) 
 [![codecov.io](https://codecov.io/github/architectnate/TriggrPHP/coverage.svg)](https://codecov.io/github/architectnate/TriggrPHP) 
 [![Packagist](https://img.shields.io/packagist/l/architectnate/triggr-php.svg)]() 

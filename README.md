@@ -1,11 +1,11 @@
 # TriggrPHP
 A lightweight PHP event handling system.
 
-[![Packagist](https://img.shields.io/packagist/v/thephpeffect/triggr-php.svg)]() 
-[![Build Status](https://travis-ci.org/thephpeffect/TriggrPHP.svg)](https://travis-ci.org/thephpeffect/TriggrPHP) 
-[![Dependency Status](https://www.versioneye.com/user/projects/56b3ba5e0a0ff5002c85ed7b/badge.svg)](https://www.versioneye.com/user/projects/56b3ba5e0a0ff5002c85ed7b) 
-[![codecov.io](https://codecov.io/github/thephpeffect/TriggrPHP/coverage.svg)](https://codecov.io/github/thephpeffect/TriggrPHP) 
-[![Packagist](https://img.shields.io/packagist/l/thephpeffect/triggr-php.svg)]() 
+[![Packagist](https://img.shields.io/packagist/v/architectnate/triggr-php.svg)]() 
+[![Build Status](https://travis-ci.org/ArchitectNate/TriggrPHP.svg?branch=master)](https://travis-ci.org/ArchitectNate/TriggrPHP) 
+[![Dependency Status](https://www.versioneye.com/user/projects/57e51d7179806f002f4aa2fe/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/56b3ba5e0a0ff5002c85ed7b) 
+[![codecov.io](https://codecov.io/github/architectnate/TriggrPHP/coverage.svg)](https://codecov.io/github/architectnate/TriggrPHP) 
+[![Packagist](https://img.shields.io/packagist/l/architectnate/triggr-php.svg)]() 
 
 This system allows you to set events and event handlers, fire the events and control the event flow. This is a great way to enabled developers to add event hooks to software.
 

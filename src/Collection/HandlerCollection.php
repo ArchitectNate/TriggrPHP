@@ -1,7 +1,7 @@
 <?php
 namespace ArchNate\TriggrPHP\Collection;
 
-use TPE\TriggrPHP\Handler;
+use ArchNate\TriggrPHP\Handler;
 
 class HandlerCollection implements \Countable
 {

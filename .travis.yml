@@ -17,7 +17,7 @@ matrix:
 before_install:
   - composer self-update
   - composer config -g github-oauth.github.com 6a78b4cf89a76c34d76c0b8e119e4cc492006a2d 
-  - composer global require thephpeffect/triggr-php:dev-master
+  - composer global require architectnate/triggr-php:dev-master
   
 install:
   - composer install --no-progress --profile

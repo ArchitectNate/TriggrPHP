@@ -1,5 +1,5 @@
 <?php
-namespace TPE\TriggrPHP\Collection;
+namespace ArchNate\TriggrPHP\Collection;
 
 use TPE\TriggrPHP\Handler;
 

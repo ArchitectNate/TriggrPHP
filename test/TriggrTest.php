@@ -1,8 +1,8 @@
 <?php
-namespace TPE\TriggrPHP\Test;
+namespace ArchNate\TriggrPHP\Test;
 
-use TPE\TriggrPHP\Triggr;
-use TPE\TriggrPHP\Options\HandlerOptions;
+use ArchNate\TriggrPHP\Triggr;
+use ArchNate\TriggrPHP\Options\HandlerOptions;
 
 /**
  * The Triggr test class

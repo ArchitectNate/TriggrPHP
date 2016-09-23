@@ -1,10 +1,10 @@
 <?php
-namespace TPE\TriggrPHP\Test;
+namespace ArchNate\TriggrPHP\Test;
 
-use TPE\TriggrPHP\Event;
-use TPE\TriggrPHP\Tools\EventPhrase;
-use TPE\TriggrPHP\Options\HandlerOptions;
-use TPE\TriggrPHP\Handler;
+use ArchNate\TriggrPHP\Event;
+use ArchNate\TriggrPHP\Tools\EventPhrase;
+use ArchNate\TriggrPHP\Options\HandlerOptions;
+use ArchNate\TriggrPHP\Handler;
 
 /**
  * The Event test class
@@ -19,7 +19,7 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $b = new Event($a);
 
         $this->assertEquals($a->getEventName(), $b->getName());
-        $this->assertInstanceOf("TPE\TriggrPHP\Collection\HandlerCollection", $b->getHandlerCollection());
+        $this->assertInstanceOf("ArchNate\TriggrPHP\Collection\HandlerCollection", $b->getHandlerCollection());
 
         // Similar to Handler Collection Test
         

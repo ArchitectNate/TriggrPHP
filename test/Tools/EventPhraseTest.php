@@ -1,7 +1,7 @@
 <?php
-namespace TPE\TriggrPHP\Test\Tools;
+namespace ArchNate\TriggrPHP\Test\Tools;
 
-use TPE\TriggrPHP\Tools\EventPhrase;
+use ArchNate\TriggrPHP\Tools\EventPhrase;
 
 class EventPhraseTest extends \PHPUnit_Framework_TestCase
 {
@@ -63,7 +63,7 @@ class EventPhraseTest extends \PHPUnit_Framework_TestCase
             try {
                 $a = new EventPhrase($eventPhrase); // With default behavior
             } catch(\Exception $e) { 
-                $this->assertInstanceOf("TPE\TriggrPHP\Exception\InvalidEventPhraseException", $e);
+                $this->assertInstanceOf("ArchNate\TriggrPHP\Exception\InvalidEventPhraseException", $e);
                 $this->assertEquals("Invalid Event Phrase", $e->getMessage());
                 $testCount++;
             }
@@ -71,7 +71,7 @@ class EventPhraseTest extends \PHPUnit_Framework_TestCase
             try {
                 $b = new EventPhrase($eventPhrase, true); // With event name only filtering
             } catch(\Exception $e) {
-                $this->assertInstanceOf("TPE\TriggrPHP\Exception\InvalidEventPhraseException", $e);
+                $this->assertInstanceOf("ArchNate\TriggrPHP\Exception\InvalidEventPhraseException", $e);
                 $this->assertEquals("Invalid Event Phrase", $e->getMessage());
                 $testCount++;
             }

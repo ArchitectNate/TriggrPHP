@@ -1,5 +1,5 @@
 <?php
-namespace TPE\TriggrPHP\Exception;
+namespace ArchNate\TriggrPHP\Exception;
 
 /**
  * A basic Exception extensions for handling invalid event phrases

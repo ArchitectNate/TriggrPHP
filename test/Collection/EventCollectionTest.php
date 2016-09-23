@@ -1,9 +1,9 @@
 <?php
-namespace TPE\TriggrPHP\Test\Collection;
+namespace ArchNate\TriggrPHP\Test\Collection;
 
-use TPE\TriggrPHP\Collection\EventCollection;
-use TPE\TriggrPHP\Tools\EventPhrase;
-use TPE\TriggrPHP\Event;
+use ArchNate\TriggrPHP\Collection\EventCollection;
+use ArchNate\TriggrPHP\Tools\EventPhrase;
+use ArchNate\TriggrPHP\Event;
 
 /**
  * The EventCollection test class

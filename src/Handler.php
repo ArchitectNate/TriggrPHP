@@ -1,8 +1,8 @@
 <?php
-namespace TPE\TriggrPHP;
+namespace ArchNate\TriggrPHP;
 
-use TPE\TriggrPHP\Options\HandlerOptions;
-use TPE\TriggrPHP\Tools\EventPhrase;
+use ArchNate\TriggrPHP\Options\HandlerOptions;
+use ArchNate\TriggrPHP\Tools\EventPhrase;
 
 /**
  * An individual event handler

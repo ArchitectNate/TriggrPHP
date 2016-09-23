@@ -15,7 +15,7 @@ Note: This is not a replacement for major frameworks like ReactPHP, but more of 
 
 The recommended way to install Triggr is through composer(https://getcomposer.org/). Type the following command in your shell environment:
 
-php ~/composer.phar require thephpeffect/trigger-php
+php ~/composer.phar require architectnate/triggr-php
 
 # Usage
 

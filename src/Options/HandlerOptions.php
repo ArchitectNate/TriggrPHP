@@ -1,6 +1,6 @@
 <?php
 
-namespace TPE\TriggrPHP\Options;
+namespace ArchNate\TriggrPHP\Options;
 
 class HandlerOptions extends BaseOptions
 {

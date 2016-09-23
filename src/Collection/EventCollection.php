@@ -1,9 +1,9 @@
 <?php
 
-namespace TPE\TriggrPHP\Collection;
+namespace ArchNate\TriggrPHP\Collection;
 
-use TPE\TriggrPHP\Tools\EventPhrase;
-use TPE\TriggrPHP\Event;
+use ArchNate\TriggrPHP\Tools\EventPhrase;
+use ArchNate\TriggrPHP\Event;
 
 class EventCollection implements \Countable
 {

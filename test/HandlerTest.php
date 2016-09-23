@@ -1,9 +1,9 @@
 <?php
-namespace TPE\TriggrPHP\Test;
+namespace ArchNate\TriggrPHP\Test;
 
-use TPE\TriggrPHP\Tools\EventPhrase;
-use TPE\TriggrPHP\Handler;
-use TPE\TriggrPHP\Options\HandlerOptions;
+use ArchNate\TriggrPHP\Tools\EventPhrase;
+use ArchNate\TriggrPHP\Handler;
+use ArchNate\TriggrPHP\Options\HandlerOptions;
 
 /**
  * The Handler test class
@@ -20,7 +20,7 @@ class HandlerTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals("EventHandler", $b->getName());
         $this->assertInternalType("callable", $b->getFunc());
-        $this->assertInstanceOf("TPE\TriggrPHP\Options\HandlerOptions", $b->getOptions());
+        $this->assertInstanceOf("ArchNate\TriggrPHP\Options\HandlerOptions", $b->getOptions());
 
         // Test function
         $this->assertTrue(call_user_func($b->getFunc()));
@@ -42,7 +42,7 @@ class HandlerTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals("SomeOtherEventHandler", $d->getName());
         $this->assertInternalType("callable", $d->getFunc());
-        $this->assertInstanceOf("TPE\TriggrPHP\Options\HandlerOptions", $d->getOptions());
+        $this->assertInstanceOf("ArchNate\TriggrPHP\Options\HandlerOptions", $d->getOptions());
     }
 
     public function testHandlerFiring()

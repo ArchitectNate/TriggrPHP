@@ -1,6 +1,6 @@
 <?php
 
-namespace TPE\TriggrPHP\Options;
+namespace ArchNate\TriggrPHP\Options;
 
 class EventOptions extends BaseOptions
 {

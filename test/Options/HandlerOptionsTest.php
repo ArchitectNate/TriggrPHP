@@ -1,7 +1,7 @@
 <?php
-namespace TPE\TriggrPHP\Test\Options;
+namespace ArchNate\TriggrPHP\Test\Options;
 
-use TPE\TriggrPHP\Options\HandlerOptions;
+use ArchNate\TriggrPHP\Options\HandlerOptions;
 
 /**
  * The TriggrOptions test class

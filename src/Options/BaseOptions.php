@@ -1,5 +1,5 @@
 <?php
-namespace TPE\TriggrPHP\Options;
+namespace ArchNate\TriggrPHP\Options;
 
 /**
  * The base options class

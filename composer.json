@@ -1,9 +1,9 @@
 {
-    "name": "thephpeffect/triggr-php",
+    "name": "architectnate/triggr-php",
     "type": "library",
     "description": "A simple event handler for php",
     "keywords": ["php", "event", "listener"],
-    "homepage": "https://github.com/thephpeffect/TriggrPHP",
+    "homepage": "https://github.com/architectnate/TriggrPHP",
     "license": "MIT",
     "authors": [
         {
@@ -21,12 +21,12 @@
     },
     "autoload": {
         "psr-4": {
-            "TPE\\TriggrPHP\\": "src/"
+            "ArchNate\\TriggrPHP\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "TPE\\TriggrPHP\\Tests\\": "tests/"
+            "ArchNate\\TriggrPHP\\Tests\\": "tests/"
         }
     }
 }

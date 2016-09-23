@@ -1,10 +1,10 @@
 <?php
-namespace TPE\TriggrPHP\Test\Collection;
+namespace ArchNate\TriggrPHP\Test\Collection;
 
-use TPE\TriggrPHP\Collection\HandlerCollection;
-use TPE\TriggrPHP\Options\HandlerOptions;
-use TPE\TriggrPHP\Tools\EventPhrase;
-use TPE\TriggrPHP\Handler;
+use ArchNate\TriggrPHP\Collection\HandlerCollection;
+use ArchNate\TriggrPHP\Options\HandlerOptions;
+use ArchNate\TriggrPHP\Tools\EventPhrase;
+use ArchNate\TriggrPHP\Handler;
 
 /**
  * The HandlerCollection test class

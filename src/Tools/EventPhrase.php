@@ -1,8 +1,8 @@
 <?php
 
-namespace TPE\TriggrPHP\Tools;
+namespace ArchNate\TriggrPHP\Tools;
 
-use TPE\TriggrPHP\Exception\InvalidEventPhraseException;
+use ArchNate\TriggrPHP\Exception\InvalidEventPhraseException;
 
 /**
  * Handles the parsing of event phrases

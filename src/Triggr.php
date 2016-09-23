@@ -1,10 +1,10 @@
 <?php
-namespace TPE\TriggrPHP;
+namespace ArchNate\TriggrPHP;
 
-use TPE\TriggrPHP\Collection\HandlerCollection;
-use TPE\TriggrPHP\Collection\EventCollection;
-use TPE\TriggrPHP\Options\HandlerOptions;
-use TPE\TriggrPHP\Tools\EventPhrase;
+use ArchNate\TriggrPHP\Collection\HandlerCollection;
+use ArchNate\TriggrPHP\Collection\EventCollection;
+use ArchNate\TriggrPHP\Options\HandlerOptions;
+use ArchNate\TriggrPHP\Tools\EventPhrase;
 
 class Triggr
 {
